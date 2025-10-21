@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-import { GoogleGenAI, Chat } from "@google/genai";
-=======
 import { GoogleGenAI } from "@google/genai";
 import type { Message } from "../types";
->>>>>>> 0c32aca (ai assistant)
 
 if (!process.env.API_KEY) {
     throw new Error("API_KEY environment variable is not set");
@@ -11,16 +7,6 @@ if (!process.env.API_KEY) {
 
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
-<<<<<<< HEAD
-export function createChatSession(systemInstruction: string): Chat {
-  const chat: Chat = ai.chats.create({
-    model: 'gemini-2.5-flash',
-    config: {
-      systemInstruction: systemInstruction,
-    },
-  });
-  return chat;
-=======
 // Helper to format app's message structure into Gemini's content structure
 const buildHistory = (messages: Message[]) => {
   return messages
@@ -55,7 +41,6 @@ export async function streamChat(history: Message[], systemInstruction: string, 
     });
     
     return responseStream;
->>>>>>> 0c32aca (ai assistant)
 }
 
 export async function generateImage(prompt: string): Promise<string> {

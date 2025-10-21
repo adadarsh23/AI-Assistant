@@ -1,26 +1,3 @@
-<<<<<<< HEAD
-import React, { useState } from 'react';
-import AIChatCard from './AIChatCard';
-import { PERSONAS } from '../constants';
-import type { Persona } from '../types';
-import PersonaSelector from './PersonaSelector';
-
-const ChatView: React.FC = () => {
-  const [selectedPersona, setSelectedPersona] = useState<Persona>(PERSONAS[0]);
-
-  return (
-    <div className="flex flex-col items-center gap-4 w-full">
-        <PersonaSelector
-            personas={PERSONAS}
-            selectedPersona={selectedPersona}
-            onPersonaChange={setSelectedPersona}
-        />
-        <AIChatCard persona={selectedPersona} key={selectedPersona.id} />
-    </div>
-  );
-}
-
-=======
 import React, { useState, useEffect, useImperativeHandle, forwardRef, useRef } from 'react';
 import { streamChat } from '../services/geminiService';
 import type { Message, Persona, ChatSession } from '../types';
@@ -302,5 +279,4 @@ const ChatView = forwardRef<ChatViewHandles, ChatViewProps>(({ selectedPersona }
   );
 });
 
->>>>>>> 0c32aca (ai assistant)
 export default ChatView;

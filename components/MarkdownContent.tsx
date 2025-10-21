@@ -1,8 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { marked } from 'marked';
-<<<<<<< HEAD
-import { CopyIcon } from './icons';
-=======
 import hljs from 'highlight.js';
 
 // The `highlight` option is deprecated in `marked.setOptions`.
@@ -30,7 +27,6 @@ marked.use({
     },
   },
 });
->>>>>>> 0c32aca (ai assistant)
 
 interface MarkdownContentProps {
   content: string;
@@ -41,54 +37,20 @@ export const MarkdownContent: React.FC<MarkdownContentProps> = ({ content }) => 
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-<<<<<<< HEAD
-    // Basic sanitization to prevent XSS, though AI output is generally safe.
-    // In a real-world app with user input, a more robust sanitizer like DOMPurify would be essential.
-    const parsedHtml = marked.parse(content, { gfm: true, breaks: true, async: false }) as string;
-=======
     const parsedHtml = marked.parse(content) as string;
->>>>>>> 0c32aca (ai assistant)
     setHtmlContent(parsedHtml);
   }, [content]);
 
   useEffect(() => {
-<<<<<<< HEAD
-    // Add copy functionality to all <pre> blocks after content is rendered
-    if (contentRef.current) {
-      const preElements = contentRef.current.querySelectorAll('pre');
-      preElements.forEach(pre => {
-        // Avoid adding multiple buttons
-        if (pre.querySelector('.copy-code-btn')) {
-=======
     if (contentRef.current) {
       const preElements = contentRef.current.querySelectorAll('pre');
       preElements.forEach(pre => {
         // Prevent adding multiple headers on re-renders
         if (pre.querySelector('.code-block-header')) {
->>>>>>> 0c32aca (ai assistant)
           return;
         }
 
         const code = pre.querySelector('code');
-<<<<<<< HEAD
-        const copyButton = document.createElement('button');
-        copyButton.className = 'copy-code-btn';
-        copyButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></svg>`;
-        
-        let timeoutId: number;
-        copyButton.addEventListener('click', () => {
-          if (code) {
-            navigator.clipboard.writeText(code.innerText);
-            copyButton.innerHTML = 'Copied!';
-            clearTimeout(timeoutId); // Clear previous timeout if exists
-            timeoutId = window.setTimeout(() => {
-              copyButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></svg>`;
-            }, 2000);
-          }
-        });
-
-        pre.appendChild(copyButton);
-=======
         if (!code) return;
 
         // 1. Create header element
@@ -140,7 +102,6 @@ export const MarkdownContent: React.FC<MarkdownContentProps> = ({ content }) => 
         // 6. Add the new header and wrapper to the <pre> element
         pre.insertBefore(header, pre.firstChild);
         pre.appendChild(codeWrapper);
->>>>>>> 0c32aca (ai assistant)
       });
     }
   }, [htmlContent]);
@@ -152,8 +113,4 @@ export const MarkdownContent: React.FC<MarkdownContentProps> = ({ content }) => 
       dangerouslySetInnerHTML={{ __html: htmlContent }}
     />
   );
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> 0c32aca (ai assistant)

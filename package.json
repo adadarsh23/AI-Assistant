@@ -15,13 +15,9 @@
     "clsx": "^2.1.1",
     "tailwind-merge": "^3.3.1",
     "framer-motion": "^12.23.22",
-<<<<<<< HEAD
-    "marked": "^14.0.0"
-=======
     "marked": "^14.0.0",
     "highlight.js": "latest",
     "uuid": "^13.0.0"
->>>>>>> 0c32aca (ai assistant)
   },
   "devDependencies": {
     "@types/node": "^22.14.0",

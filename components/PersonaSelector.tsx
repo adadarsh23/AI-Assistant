@@ -1,14 +1,8 @@
-<<<<<<< HEAD
-
-import React from 'react';
-import type { Persona } from '../types';
-=======
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '../lib/utils';
 import type { Persona } from '../types';
 import { ChevronDownIcon, CheckIcon } from './icons';
->>>>>>> 0c32aca (ai assistant)
 
 interface PersonaSelectorProps {
   personas: Persona[];
@@ -17,34 +11,6 @@ interface PersonaSelectorProps {
 }
 
 const PersonaSelector: React.FC<PersonaSelectorProps> = ({ personas, selectedPersona, onPersonaChange }) => {
-<<<<<<< HEAD
-  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedId = event.target.value;
-    const persona = personas.find(p => p.id === selectedId);
-    if (persona) {
-      onPersonaChange(persona);
-    }
-  };
-
-  return (
-    <div className="relative w-full max-w-xs">
-      <select
-        value={selectedPersona.id}
-        onChange={handleChange}
-        className="w-full appearance-none bg-white/10 text-white py-2 px-4 pr-8 rounded-lg border border-white/20 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all"
-      >
-        {personas.map((persona) => (
-          <option key={persona.id} value={persona.id} className="bg-gray-800 text-white">
-            {persona.name}
-          </option>
-        ))}
-      </select>
-      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
-        <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-          <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-        </svg>
-      </div>
-=======
   const [isOpen, setIsOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -110,13 +76,8 @@ const PersonaSelector: React.FC<PersonaSelectorProps> = ({ personas, selectedPer
           </motion.ul>
         )}
       </AnimatePresence>
->>>>>>> 0c32aca (ai assistant)
     </div>
   );
 };
 
-<<<<<<< HEAD
 export default PersonaSelector;
-=======
-export default PersonaSelector;
->>>>>>> 0c32aca (ai assistant)
