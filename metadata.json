@@ -1,0 +1,12 @@
+{
+<<<<<<< HEAD
+  "name": "Gemini AI Studio",
+  "description": "An advanced AI studio powered by the Gemini API. Engage in dynamic conversations with different AI personas, or create stunning visuals with the powerful image generation model.",
+  "requestFramePermissions": []
+}
+=======
+  "name": "Ai Assistant",
+  "description": "An advanced AI studio powered by the Gemini API. Engage in dynamic conversations with different AI personas, or create stunning visuals with the powerful image generation model.",
+  "requestFramePermissions": []
+}
+>>>>>>> 0c32aca (ai assistant)
